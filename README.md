@@ -1,6 +1,9 @@
 # API de Transações
 
-Esta é uma API desenvolvida em Spring Boot para gerenciamento de transações. Ela permite criar e listar usuários e transações através de endpoints RESTful. 
+Esta é uma API desenvolvida em Spring Boot para gerenciamento de transações. É uma resolução do Desafio PicPaySimplificado, disponível em:
+https://github.com/PicPay/picpay-desafio-backend
+
+Ela permite criar e listar usuários e transações através de endpoints RESTful. 
 A documentação da API foi gerada usando Swagger.
 
 ## Funcionalidades
