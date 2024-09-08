@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -72,6 +73,10 @@ public class TransactionService {
             // Lida com o erro 403 e outros erros HTTP
             return false;
         }
+    }
+
+    public List<Transaction> getAllTransactions() {
+        return this.repository.findAll();
     }
 
 

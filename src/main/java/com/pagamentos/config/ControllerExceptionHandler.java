@@ -4,6 +4,7 @@ import com.pagamentos.dtos.ExceptionDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.NoTransactionException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -25,5 +26,11 @@ public class ControllerExceptionHandler {
     public ResponseEntity threatGeneralException(Exception exception){
         ExceptionDTO exceptionDTO = new ExceptionDTO(exception.getMessage(), "500");
         return ResponseEntity.internalServerError().body(exceptionDTO);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ExceptionDTO> handleNoTransactionsFound(RuntimeException exception) {
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Nenhuma transação cadastrada", "404");
+        return ResponseEntity.status(404).body(exceptionDTO);
     }
 }
